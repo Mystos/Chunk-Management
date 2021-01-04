@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 967309251}
   - component: {fileID: 967309250}
   - component: {fileID: 967309249}
+  - component: {fileID: 967309252}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -148,11 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 967309248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32df26461a06f884881ae87f7ef90bb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ede9974a97a35543ae844f95e034d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glmPath: D:\LYON_3EME_2015\LYON_3EME_BATI_2015.gml
   city: []
+  buildingInstiate: []
+  path: D:\LYON_3EME_2015\LYON_3EME_BATI_2015.gml
+  houseConstructorPrefab: {fileID: 598251409731416470, guid: 4b437492f6bfdd64497e0764ca31d66a,
+    type: 3}
 --- !u!114 &967309250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +183,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967309252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967309248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32df26461a06f884881ae87f7ef90bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1108595271
 GameObject:
   m_ObjectHideFlags: 0

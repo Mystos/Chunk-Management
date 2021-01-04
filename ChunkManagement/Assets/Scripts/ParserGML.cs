@@ -20,7 +20,7 @@ public class ParserGML : MonoBehaviour
                 string lineRemove = line.Remove(line.Length - 15);
                 string lineRemoveHeader = lineRemove.Remove(0, 39);
                 city.Add(CreateBuilding(lineRemoveHeader)); //create building
-                if (i > 10000)
+                if (i > 1000000)
                     return city;
                 i++;
             }
