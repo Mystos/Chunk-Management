@@ -19,8 +19,7 @@ public class AutoRenderer : MonoBehaviour
             renderer.enabled = true;
         }
         else
-        {
             renderer.enabled = false;
-        }
+
     }
 }

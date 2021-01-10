@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(Vector3.up, horizontal * rotSpeed);
         //transform.rotation = Quaternion.Euler(new Vector3(0f, transform.rotation.eulerAngles.y + horizontal * turnSpeed, 0f));
-        Vector3 movDir = new Vector3(0, 0, vertical);
-        controller.Move(movDir.normalized * speed * Time.deltaTime);
+        controller.Move(transform.forward * vertical * speed * Time.deltaTime);
     }
 }

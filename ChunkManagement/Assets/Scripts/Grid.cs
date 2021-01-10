@@ -20,19 +20,25 @@ public class Grid
     {
         Chunk chunk = GetChunkByPos(building.building.BuildingCenter);
         chunk.buildings.Add(building);
+        building.gameObject.SetActive(false);
     }
 
     public Chunk GetChunkByPos(Vector3 pos)
     {
-        int xChunk = Mathf.FloorToInt(pos.x / chunkSize);
-        int yChunk = Mathf.FloorToInt(pos.z / chunkSize);
-        Vector2Int chunkPos = new Vector2Int(xChunk, yChunk);
+        Vector2Int chunkPos = GetCellPosition(pos);
         if (!chunks.TryGetValue(chunkPos, out Chunk chunk))
         {
             chunk = new Chunk();
             chunks.Add(chunkPos, chunk);
         }
         return chunk;
+    }
+
+    public Vector2Int GetCellPosition(Vector3 position)
+    {
+        int xChunk = Mathf.FloorToInt(position.x / chunkSize);
+        int yChunk = Mathf.FloorToInt(position.z / chunkSize);
+        return new Vector2Int(xChunk, yChunk);
     }
 
 }
@@ -46,7 +52,7 @@ public class Chunk
 
     public Chunk()
     {
-        Active = true;
+        Active = false;
         buildings = new List<HouseConstructor>();
     }
 
