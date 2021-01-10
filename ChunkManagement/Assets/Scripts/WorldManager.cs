@@ -7,7 +7,10 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     public Grid grid;
-    
+    public PlayerController player;
+
+    private Chunk currentChunk;
+
     private void Awake()
     {
         grid = new Grid();
@@ -15,12 +18,18 @@ public class WorldManager : MonoBehaviour
         city.BuildCity();
     }
 
+    private void Update()
+    {
+        Chunk chunk = grid.GetChunkByPos(player.transform.position);
+        chunk.ToggleChunk(false);
+    }
+
     public void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            List<Chunk> values = Enumerable.ToList(grid.chunks.Values);
-            grid.ToggleChunk(values[0]);
+            List<Chunk> chunks = Enumerable.ToList(grid.chunks.Values);
+            chunks[0].ToggleChunk();
         }
     }
 

@@ -35,14 +35,6 @@ public class Grid
         return chunk;
     }
 
-    public void ToggleChunk(Chunk chunk)
-    {
-        foreach (HouseConstructor item in chunk.buildings)
-        {
-            item.gameObject.SetActive(!item.gameObject.activeSelf);
-        }
-    }
-
 }
 
 public class Chunk
@@ -50,8 +42,31 @@ public class Chunk
     //public Vector2Int chunkPos;
     public List<HouseConstructor> buildings;
 
+    public bool Active { get; private set; }
+
     public Chunk()
-    { 
+    {
+        Active = true;
         buildings = new List<HouseConstructor>();
+    }
+
+    public void ToggleChunk()
+    {
+        foreach (HouseConstructor item in buildings)
+        {
+            item.gameObject.SetActive(!item.gameObject.activeSelf);
+        }
+        Active = !Active;
+    }
+
+    public void ToggleChunk(bool activate)
+    {
+        if (Active == activate) return;
+
+        foreach (HouseConstructor item in buildings)
+        {
+            item.gameObject.SetActive(activate);
+        }
+        Active = activate;
     }
 }
