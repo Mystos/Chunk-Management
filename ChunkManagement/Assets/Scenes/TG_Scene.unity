@@ -157,6 +157,7 @@ MonoBehaviour:
   path: D:\LYON_3EME_2015\LYON_3EME_BATI_2015.gml
   houseConstructorPrefab: {fileID: 598251409731416470, guid: 4b437492f6bfdd64497e0764ca31d66a,
     type: 3}
+  worldManager: {fileID: 0}
 --- !u!114 &967309250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32df26461a06f884881ae87f7ef90bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid:
+    chunkSize: 10
 --- !u!1 &1108595271
 GameObject:
   m_ObjectHideFlags: 0

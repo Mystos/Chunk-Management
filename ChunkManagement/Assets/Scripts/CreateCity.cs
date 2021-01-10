@@ -17,6 +17,13 @@ public class CreateCity : MonoBehaviour
     //GML file of your city
     private TextAsset GMLFile;
 
+    public WorldManager worldManager;
+
+    public void Awake()
+    {
+        worldManager = GetComponent<WorldManager>();
+    }
+
     public void BuildCity()
     {
         city = ParserGML.GetBuildingsFromGML(path);
@@ -37,12 +44,17 @@ public class CreateCity : MonoBehaviour
         //Build houses
         for (int i = 0; i < city.Count; i++)
         {
-            HouseConstructor house = Instantiate(houseConstructorPrefab, new Vector3((city[i].points[0].x - cityCenter.x) / 100, 0, (city[i].points[0].y - cityCenter.y) / 100), Quaternion.identity, this.transform);
+            Vector3 pos = new Vector3((city[i].points[0].x - cityCenter.x) / 100, 0, (city[i].points[0].y - cityCenter.y) / 100);
+            HouseConstructor house = Instantiate(houseConstructorPrefab, pos, Quaternion.identity, this.transform);
             buildingInstiate.Add(house.gameObject);
             house.building = city[i];
             house.cityCenter = cityCenter;
             house.Construct();
             house.gameObject.AddComponent<MeshCollider>().convex = true;
+            //house.gameObject.AddComponent<IsVisible>();
+            // Ajout du building au chunk
+            worldManager.grid.AddBuildingToGrid(house);
+
         }
     }
 
@@ -54,4 +66,6 @@ public class CreateCity : MonoBehaviour
         }
         buildingInstiate.Clear();
     }
+
+
 }
