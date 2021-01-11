@@ -5,6 +5,10 @@ using UnityEngine;
 public class AutoRenderer : MonoBehaviour
 {
     Renderer renderer;
+    public GameObject lod0;
+    public GameObject lod1;
+
+
     // Use this for initialization
     void Start()
     {
@@ -16,10 +20,13 @@ public class AutoRenderer : MonoBehaviour
     {
         if (renderer.isVisible)
         {
-            renderer.enabled = true;
+            lod0.SetActive(true);
+            lod1.SetActive(false);
         }
         else
-            renderer.enabled = false;
-
+        {
+            lod0.SetActive(false);
+            lod1.SetActive(true);
+        }
     }
 }
