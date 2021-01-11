@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoRenderer : MonoBehaviour
 {
-    Renderer renderer;
+    Renderer[] renderers;
     public GameObject lod0;
     public GameObject lod1;
 
@@ -12,21 +12,35 @@ public class AutoRenderer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        renderers = GetComponentsInChildren<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (renderer.isVisible)
+        if (CheckVisibility())
         {
             lod0.SetActive(true);
             lod1.SetActive(false);
+            lod0.GetComponentsInChildren<Renderer>()[0].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            lod1.GetComponentsInChildren<Renderer>()[0].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         }
         else
         {
             lod0.SetActive(false);
             lod1.SetActive(true);
+            lod0.GetComponentsInChildren<Renderer>()[0].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            lod1.GetComponentsInChildren<Renderer>()[0].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
+    }
+
+    private bool CheckVisibility()
+    {
+        foreach (Renderer renderer in renderers)
+        {
+            if (renderer.isVisible)
+                return true;
+        }
+        return false;
     }
 }

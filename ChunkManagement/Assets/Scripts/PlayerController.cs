@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         transform.Rotate(Vector3.up, horizontal * rotSpeed);
-        //transform.rotation = Quaternion.Euler(new Vector3(0f, transform.rotation.eulerAngles.y + horizontal * turnSpeed, 0f));
         controller.Move(transform.forward * vertical * speed * Time.deltaTime);
     }
 }
