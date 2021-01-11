@@ -13,7 +13,7 @@ public class WorldManager : MonoBehaviour
 
     private void Awake()
     {
-        displayedChunks = new Chunk[5];
+        displayedChunks = new Chunk[9];
         grid = new Grid();
         CreateCity city = GetComponent<CreateCity>();
         city.BuildCity();
@@ -45,6 +45,18 @@ public class WorldManager : MonoBehaviour
 
             grid.chunks.TryGetValue(chunkXY + new Vector2Int(0, -1), out Chunk downChunk);
             displayedChunks[4] = downChunk;
+
+            grid.chunks.TryGetValue(chunkXY + new Vector2Int(-1, 1), out Chunk topleftChunk);
+            displayedChunks[5] = topleftChunk;
+
+            grid.chunks.TryGetValue(chunkXY + new Vector2Int(1, 1), out Chunk toprightChunk);
+            displayedChunks[6] = toprightChunk;
+
+            grid.chunks.TryGetValue(chunkXY + new Vector2Int(-1, -1), out Chunk downleftChunk);
+            displayedChunks[7] = downleftChunk;
+
+            grid.chunks.TryGetValue(chunkXY + new Vector2Int(1, -1), out Chunk downrightChunk);
+            displayedChunks[8] = downrightChunk;
 
             for (int i = 0; i < displayedChunks.Length; i++)
             {

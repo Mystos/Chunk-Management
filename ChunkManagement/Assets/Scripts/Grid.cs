@@ -7,7 +7,7 @@ using UnityEngine;
 public class Grid
 {
     [SerializeField]
-    public float chunkSize = 500;
+    public float chunkSize = 100;
 
     public Dictionary<Vector2Int, Chunk> chunks;
 

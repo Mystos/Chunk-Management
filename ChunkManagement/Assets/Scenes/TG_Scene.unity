@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 4253594224327907032, guid: 45706129a80a5fb43a97d5c50430fba8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 250
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: 4253594224327907032, guid: 45706129a80a5fb43a97d5c50430fba8,
         type: 3}
@@ -211,12 +211,12 @@ PrefabInstance:
     - target: {fileID: 4253594224327907036, guid: 45706129a80a5fb43a97d5c50430fba8,
         type: 3}
       propertyPath: speed
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4253594224327907036, guid: 45706129a80a5fb43a97d5c50430fba8,
         type: 3}
       propertyPath: rotSpeed
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4253594224327907037, guid: 45706129a80a5fb43a97d5c50430fba8,
         type: 3}
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid:
-    chunkSize: 10
+    chunkSize: 1
   player: {fileID: 997637839}
 --- !u!114 &997637839 stripped
 MonoBehaviour:
