@@ -23,17 +23,13 @@ public class WorldManager : MonoBehaviour
     {
         if (player)
         {
-            foreach (Chunk c in grid.chunks.Values)
-            {
-                if (!displayedChunks.Contains(c))
-                    c.ToggleChunk(false);
-            }
-
             Chunk chunk = grid.GetChunkByPos(player.transform.position);
             Vector2Int chunkXY = grid.GetCellPosition(player.transform.position);
 
+            //Add center chunk to display array
             displayedChunks[0] = chunk;
 
+            //Add closest chunks to display array
             grid.chunks.TryGetValue(chunkXY + new Vector2Int(-1, 0), out Chunk leftChunk);
             displayedChunks[1] = leftChunk;
 
@@ -58,11 +54,21 @@ public class WorldManager : MonoBehaviour
             grid.chunks.TryGetValue(chunkXY + new Vector2Int(1, -1), out Chunk downrightChunk);
             displayedChunks[8] = downrightChunk;
 
+            //Enable proximity chunks
             for (int i = 0; i < displayedChunks.Length; i++)
             {
                 if (displayedChunks[i] != null)
                     displayedChunks[i].ToggleChunk(true);
             }
+
+            //Disable all other chunks
+            foreach (Chunk c in grid.chunks.Values)
+            {
+                if (!displayedChunks.Contains(c))
+                    c.ToggleChunk(false);
+            }
+
+           
         }
     }
 

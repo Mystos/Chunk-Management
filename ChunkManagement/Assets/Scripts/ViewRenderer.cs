@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoRenderer : MonoBehaviour
+public class ViewRenderer : MonoBehaviour
 {
     Renderer[] renderers;
     public GameObject lod0;
